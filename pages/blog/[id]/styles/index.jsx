@@ -10,7 +10,6 @@ export const Container = styled.div`
 
 export const Blog = styled.div`
   width: 100%;
-
 `;
 export const Title = styled.div`
   font-size: 30px;

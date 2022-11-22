@@ -1,6 +1,7 @@
 import Layout from "../../components/Layout";
 import styled from "styled-components";
 import { HiPlus } from "react-icons/hi";
+import { FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { Checkbox, Button, Input } from "@nextui-org/react";
 import { useState } from "react";
@@ -94,9 +95,13 @@ const Container = styled.div`
         width: 100%;
         height: auto;
         display: grid;
-        grid-template-columns: auto 20%;
+        grid-template-columns: auto 10%;
         grid-gap: 20px;
         align-items: center;
+
+        /* button {
+          width: 30p
+        } */
       }
     }
   }
@@ -175,7 +180,14 @@ const Index = ({ todos }) => {
                   >
                     {todo.todo}
                   </Checkbox>
-                  <button onClick={() => deleteTodo(todo._id)}>Del</button>
+                  <Button
+                    color="error"
+                    auto
+                    rounded
+                    onPress={() => deleteTodo(todo._id)}
+                    icon={<FaTrash />}
+                  />
+                  {/* <button onClick={}>Del</button> */}
                 </div>
               ))}
           </div>
