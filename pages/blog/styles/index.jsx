@@ -24,6 +24,7 @@ export const BlogList = styled.div`
 `;
 export const Blog = styled.div`
   width: 100%;
+  max-width: 250px;
   height: 30vh;
   padding: 30px  20px 20px;
   border-radius: 20px;
@@ -36,6 +37,14 @@ export const Title = styled.div`
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 20px;
+`;
+export const Oops = styled.div`
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const Content = styled.div`
 letter-spacing: 1px;

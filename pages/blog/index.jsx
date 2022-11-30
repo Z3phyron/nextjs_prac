@@ -1,6 +1,13 @@
 import axios from "axios";
 import Layout from "../../components/Layout";
-import { Modal, Button, Input, Spacer, Textarea, Loading } from "@nextui-org/react";
+import {
+  Modal,
+  Button,
+  Input,
+  Spacer,
+  Textarea,
+  Loading,
+} from "@nextui-org/react";
 import {
   Blog,
   BlogList,
@@ -11,6 +18,7 @@ import {
   Title,
   Form,
   Buttons,
+  Oops,
 } from "./styles";
 import { HiPencil } from "react-icons/hi";
 import { IoMdTrash } from "react-icons/io";
@@ -89,77 +97,86 @@ const Index = ({ blogs }) => {
   return (
     <Layout>
       <Container>
-        <Header>Latest Blogs</Header>
-        <BlogList>
-          {blogs.map((blog) => (
-            <Blog key={blog._id}>
-              <Title>
-                <Readmore href={`/blog/${blog._id}`}>{blog.title}</Readmore>
-              </Title>
-              <Content>{blog.content.slice(0, 50)}.....</Content>
-              <Buttons>
-                {" "}
-                <Button
-                  auto
-                  shadow
-                  onPress={() => handler(blog?._id)}
-                  icon={<HiPencil />}
-                />
-                <Button
-                  auto
-                  shadow
-                  color="error"
-                  onPress={() => DelBlog(blog?._id)}
-                  icon={<IoMdTrash />}
-                />
-              </Buttons>
+        {blogs.length <= 0 ? (
+          <Oops>
+            <p>Oops!!! no Blogs created</p>
+          </Oops>
+        ) : (
+          <>
+            {" "}
+            <Header>Latest Blogs</Header>
+            <BlogList>
+              {blogs.map((blog) => (
+                <Blog key={blog._id}>
+                  <Title>
+                    <Readmore href={`/blog/${blog._id}`}>{blog.title}</Readmore>
+                  </Title>
+                  <Content>{blog.content.slice(0, 50)}.....</Content>
+                  <Buttons>
+                    {" "}
+                    <Button
+                      auto
+                      shadow
+                      onPress={() => handler(blog?._id)}
+                      icon={<HiPencil />}
+                    />
+                    <Button
+                      auto
+                      shadow
+                      color="error"
+                      onPress={() => DelBlog(blog?._id)}
+                      icon={<IoMdTrash />}
+                    />
+                  </Buttons>
 
-              <Modal
-                closeButton
-                aria-labelledby="modal-title"
-                open={visible}
-                onClose={closeHandler}
-              >
-                <Modal.Body>
-                  {isLoading ? (
-                    <Loading type="spinner" size="lg" />
-                  ) : (
-                    <Form onSubmit={onSubmit}>
-                      <Title>
-                        <Input
-                          fullWidth
-                          aria-label="..."
-                          placeholder="Title"
-                          size="lg"
-                          name="title"
-                          value={title}
-                          onChange={onChange}
-                        />
-                      </Title>
-                      <Spacer y={2} />
-                      <Content>
-                        <Textarea
-                          fullWidth
-                          aria-label="..."
-                          placeholder="Content"
-                          name="content"
-                          value={content}
-                          onChange={onChange}
-                          minRows={4}
-                          maxRows={10}
-                        />
-                      </Content>
-                      <Spacer y={2} />
-                      <Button auto type="submit">
-                        Submit
-                      </Button>
-                    </Form>
-                  )}
-                </Modal.Body>
-              </Modal>
-            </Blog>
-          ))}
-        </BlogList>
+                  <Modal
+                    closeButton
+                    aria-labelledby="modal-title"
+                    open={visible}
+                    onClose={closeHandler}
+                  >
+                    <Modal.Body>
+                      {isLoading ? (
+                        <Loading type="spinner" size="lg" />
+                      ) : (
+                        <Form onSubmit={onSubmit}>
+                          <Title>
+                            <Input
+                              fullWidth
+                              aria-label="..."
+                              placeholder="Title"
+                              size="lg"
+                              name="title"
+                              value={title}
+                              onChange={onChange}
+                            />
+                          </Title>
+                          <Spacer y={2} />
+                          <Content>
+                            <Textarea
+                              fullWidth
+                              aria-label="..."
+                              placeholder="Content"
+                              name="content"
+                              value={content}
+                              onChange={onChange}
+                              minRows={4}
+                              maxRows={10}
+                            />
+                          </Content>
+                          <Spacer y={2} />
+                          <Button auto type="submit">
+                            Submit
+                          </Button>
+                        </Form>
+                      )}
+                    </Modal.Body>
+                  </Modal>
+                </Blog>
+              ))}
+            </BlogList>
+          </>
+        )}
       </Container>
     </Layout>
   );

@@ -39,7 +39,7 @@ const Index = () => {
     if (data.success === true) {
       setTimeout(() => {
         setFormData(INITIAL_STATE);
-      }, 2000);
+      }, 1000);
     }
   };
 

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.form``
+export const Container = styled.form`
+padding-top: 8vh;
+`
 export const ThumbNail = styled.div`
  display: flex;
   /* justify-content: space-between; */
