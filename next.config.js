@@ -5,7 +5,8 @@ const nextConfig = {
     styledComponents: true,
   },
   env: {
-    MONGO_URI: "mongodb://localhost:27017/notes",
+    MONGO_URI:
+      "mongodb+srv://z3phyr:Betty234@practice.szl06ss.mongodb.net/?retryWrites=true&w=majority",
   },
 };
 
