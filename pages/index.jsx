@@ -1,4 +1,4 @@
-import Layout from "../../components/Layout";
+import Layout from "../components/Layout";
 import styled from "styled-components";
 import { HiPlus } from "react-icons/hi";
 import { FaTrash } from "react-icons/fa";

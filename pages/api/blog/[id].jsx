@@ -42,6 +42,7 @@ export default async (req, res) => {
   const {
     query: { id },
     method,
+    body,
   } = req;
 
   switch (method) {
@@ -67,12 +68,7 @@ export default async (req, res) => {
 
     case "PUT":
       try {
-        const blog = await Blog.findOne({ _id: id });
-
-        let isCompleted = !blog.isCompleted
-
-        blog.isCompleted = isCompleted
-        blog.save()
+        const blog = await Blog.findByIdAndUpdate(id, { ...body });
 
         res.status(201).json({
           succes: true,

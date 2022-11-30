@@ -2,7 +2,6 @@ import axios from "axios";
 import Layout from "../../../components/Layout";
 import {
   Blog,
- 
   Container,
   Content,
   Title,

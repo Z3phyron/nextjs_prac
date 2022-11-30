@@ -51,9 +51,8 @@ const LinkEl = styled(Link)`
 `;
 
 const links = [
-  { name: "Home", path: "/" },
   { name: "Write", path: "/write" },
-  { name: "Todo", path: "/todo" },
+  { name: "Todo", path: "/" },
   { name: "Blog", path: "/blog" },
 ];
 

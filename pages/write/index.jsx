@@ -24,13 +24,7 @@ const Index = () => {
     }));
   };
 
-  // const onFileChange = (e) => {
-  //   const selectedFiles = e.target.files;
-  //   setFormData((prevState) => ({
-  //     ...prevState,
-  //     image: selectedFiles,
-  //   }));
-  // };
+
 
   const onSubmit = async (e) => {
     e.preventDefault();
