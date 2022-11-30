@@ -6,7 +6,7 @@ import {
   Content,
   Title,
 } from "./styles";
-const url = "http://localhost:3000/api/blog";
+const url = "/api/blog";
 
 export async function getStaticPaths() {
     const { data } = await axios.get(url);

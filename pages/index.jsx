@@ -7,7 +7,7 @@ import { Checkbox, Button, Input } from "@nextui-org/react";
 import { useState } from "react";
 
 import { useRouter } from "next/router";
-const url = "http://localhost:3000/api/todo";
+const url = "/api/todo";
 
 const Container = styled.div`
   display: flex;
@@ -119,7 +119,7 @@ const Index = ({ todos }) => {
 
   const updateTodo = async (id) => {
     try {
-       await axios.put(`http://localhost:3000/api/todo/${id}`, {id});
+       await axios.put(`/api/todo/${id}`, {id});
 
       refreshData();
     } catch (error) {
@@ -129,7 +129,7 @@ const Index = ({ todos }) => {
 
   const deleteTodo = async (id) => {
     try {
-       await axios.delete(`http://localhost:3000/api/todo/${id}`);
+       await axios.delete(`/api/todo/${id}`);
 
       refreshData();
     } catch (error) {
@@ -139,7 +139,7 @@ const Index = ({ todos }) => {
 
   const createNote = async () => {
     try {
-      const { data } = await axios.post("http://localhost:3000/api/todo", {
+      const { data } = await axios.post("/api/todo", {
         todo: value,
       });
       setValue(" ");

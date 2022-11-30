@@ -24,7 +24,7 @@ import { HiPencil } from "react-icons/hi";
 import { IoMdTrash } from "react-icons/io";
 import { useRouter } from "next/router";
 import { useState } from "react";
-const url = "http://localhost:3000/api/blog/";
+const url = "/api/blog/";
 
 const Index = ({ blogs }) => {
   const [formData, setFormData] = useState({
